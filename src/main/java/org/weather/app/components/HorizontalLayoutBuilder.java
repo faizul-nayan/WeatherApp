@@ -54,6 +54,7 @@ public class HorizontalLayoutBuilder {
         HorizontalLayout layout = new HorizontalLayout();
         layout.setJustifyContentMode(justifyContentMode);
         layout.getStyle().set("background-color", backgroundColor);
+        layout.getStyle().set("border-radius", "7px");
         layout.setWidth(width);
         layout.setPadding(padding);
         layout.setSpacing(spacing);

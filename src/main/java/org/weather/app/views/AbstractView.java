@@ -20,7 +20,7 @@ public abstract class AbstractView  extends VerticalLayout{
         getStyle().set("background-size", "cover");
         getStyle().set("background-repeat", "no-repeat");
         getStyle().set("background-position", "center center");
-
+        getStyle().set("border-radius", "7px");
         // Optional: Handle overflow and margin issues
         getStyle().set("margin", "0");
         getStyle().set("overflow", "hidden");

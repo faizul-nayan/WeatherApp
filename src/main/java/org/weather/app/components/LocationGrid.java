@@ -1,13 +1,15 @@
 package org.weather.app.components;
 
-import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.data.provider.ListDataProvider;
+import org.vaadin.klaudeta.PaginatedGrid;
 import org.weather.app.models.Location;
 
 import java.util.List;
 
-public class LocationGrid extends Grid<Location> {
+import static org.weather.app.Utilities.Constraints.PAGE_SIZE;
+
+public class LocationGrid extends PaginatedGrid<Location, String> {
 
     private ListDataProvider<Location> dataProvider;
 
@@ -18,8 +20,8 @@ public class LocationGrid extends Grid<Location> {
         addColumn(Location::getTimeZone).setHeader("Location").setClassNameGenerator(item -> "custom-grid");;
         addColumn(Location::getLatitude).setHeader("Latitude").setClassNameGenerator(item -> "custom-grid");;
         addColumn(Location::getLongitude).setHeader("Longitude").setClassNameGenerator(item -> "custom-grid");;
-
-
+        setPageSize(PAGE_SIZE);
+        setPaginatorSize(20);
         addThemeVariants(GridVariant.LUMO_NO_BORDER);
     }
 

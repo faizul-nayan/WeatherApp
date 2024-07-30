@@ -23,6 +23,7 @@ public class SearchBar extends HorizontalLayout {
 
         setWidth("80%");
         getStyle().set("background-color", "rgba(211, 196, 218, 0.5)");
+        getStyle().set("border-radius", "7px");
         setHeight("75px");
         this.searchLocation = searchLocation;
         searchField = new TextFieldBuilder()

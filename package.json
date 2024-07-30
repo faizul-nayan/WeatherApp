@@ -3,6 +3,9 @@
   "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
+    "@polymer/iron-iconset-svg": "^3.0.1",
+    "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.2",
     "@polymer/polymer": "3.5.1",
     "@vaadin/bundles": "24.4.1",
     "@vaadin/common-frontend": "0.0.19",
@@ -20,6 +23,8 @@
     "construct-style-sheets-polyfill": "3.1.0",
     "date-fns": "2.29.3",
     "lit": "3.1.4",
+    "lit-element": "^3.2.2",
+    "lit-html": "2.4.0",
     "proj4": "2.11.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -47,6 +52,9 @@
   },
   "vaadin": {
     "dependencies": {
+      "@polymer/iron-iconset-svg": "^3.0.1",
+      "@polymer/paper-button": "^3.0.1",
+      "@polymer/paper-icon-button": "^3.0.2",
       "@polymer/polymer": "3.5.1",
       "@vaadin/bundles": "24.4.1",
       "@vaadin/common-frontend": "0.0.19",
@@ -63,6 +71,8 @@
       "construct-style-sheets-polyfill": "3.1.0",
       "date-fns": "2.29.3",
       "lit": "3.1.4",
+      "lit-element": "^3.2.2",
+      "lit-html": "2.4.0",
       "proj4": "2.11.0",
       "react": "18.3.1",
       "react-dom": "18.3.1",
@@ -88,7 +98,7 @@
       "workbox-core": "7.1.0",
       "workbox-precaching": "7.1.0"
     },
-    "hash": "576917b3e19cb2a0414dfee33d79e2bb775b68929476e2027dcb436092b52a7c"
+    "hash": "916140a4731e1081e26c444684d956e8086337b6ee26d75a9809ca5339164ad1"
   },
   "overrides": {
     "@vaadin/bundles": "$@vaadin/bundles",
@@ -111,6 +121,11 @@
     "@vaadin/vaadin-charts": "$@vaadin/vaadin-charts",
     "@vaadin/vaadin-lumo-styles": "$@vaadin/vaadin-lumo-styles",
     "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
-    "chart.js": "$chart.js"
+    "chart.js": "$chart.js",
+    "@polymer/iron-iconset-svg": "$@polymer/iron-iconset-svg",
+    "lit-html": "$lit-html",
+    "@polymer/paper-icon-button": "$@polymer/paper-icon-button",
+    "lit-element": "$lit-element",
+    "@polymer/paper-button": "$@polymer/paper-button"
   }
 }

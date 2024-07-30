@@ -23,6 +23,8 @@ import org.weather.app.services.LocationService;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.weather.app.Utilities.Constraints.PAGE_SIZE;
+
 /**
  * The main view contains a text field for getting the user name and a button
  * that shows a greeting message in a notification.
@@ -39,15 +41,9 @@ public class SearchLocationView extends AbstractView implements BeforeEnterObser
     private LocationGrid locationGridComponent;
     private TextField locationFilterField;
     private VerticalLayout gridLayout;
-    private HorizontalLayout paginationLayout;
     private List<FavoriteCity> favoriteCityList;
     private User loginUser;
-    private Button previousButton;
-    private Button nextButton;
-    private Div pageInfo;
     private int currentPage = 1;
-    private int totalPages = 1;
-    private static final int PAGE_SIZE = 10;
     private List<Location> allLocations;
 
 
@@ -76,22 +72,13 @@ public class SearchLocationView extends AbstractView implements BeforeEnterObser
         locationGridComponent.addItemClickListener(event -> handleGridItemClick(event.getItem()));
         gridLayout = new VerticalLayoutBuilder().setPadding(true).build();
         gridLayout.setVisible(false);
-        paginationLayout = new HorizontalLayoutBuilder().build();
-        paginationLayout.setVisible(false);
-        previousButton = new Button("Previous", e -> previousPage());
-        nextButton = new Button("Next", e -> nextPage());
-        nextButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        previousButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        pageInfo = new Div();
-        pageInfo.addClassNames("default-text", "padding-1");
 
     }
 
     @Override
     public void generateComponents() {
         gridLayout.add(locationFilterField, locationGridComponent);
-        paginationLayout.add(previousButton, pageInfo, nextButton);
-        add(searchBarComponent, gridLayout, paginationLayout);
+        add(searchBarComponent, gridLayout);
     }
 
     private void handleSearchClick() {
@@ -110,11 +97,8 @@ public class SearchLocationView extends AbstractView implements BeforeEnterObser
                     if (ui != null) {
                         ui.access(() -> {
                             gridLayout.setVisible(true);
-                            paginationLayout.setVisible(true);
                             allLocations = locations;
-                            totalPages = (int) Math.ceil((double) allLocations.size() / PAGE_SIZE);
                             currentPage = 1;
-                            updatePageInfo();
                             updateGrid();
                         });
                     }
@@ -156,35 +140,12 @@ public class SearchLocationView extends AbstractView implements BeforeEnterObser
         UI.getCurrent().navigate(CurrentForecastView.class, parameters);
     }
 
-    private void previousPage() {
-        if (currentPage > 1) {
-            currentPage--;
-            updatePageInfo();
-            updateGrid();
-        }
-    }
-
-    private void nextPage() {
-        if (currentPage < totalPages) {
-            currentPage++;
-            updatePageInfo();
-            updateGrid();
-        }
-    }
-
     private void updateGrid() {
         int fromIndex = (currentPage - 1) * PAGE_SIZE;
         int toIndex = Math.min(fromIndex + PAGE_SIZE, allLocations.size());
         List<Location> currentPageItems = new ArrayList<>(allLocations.subList(fromIndex, toIndex));
         locationGridComponent.setData(currentPageItems);
     }
-
-    private void updatePageInfo() {
-        pageInfo.setText("Page " + currentPage + " of " + totalPages);
-        previousButton.setEnabled(currentPage > 1);
-        nextButton.setEnabled(currentPage < totalPages);
-    }
-
 
 }
 

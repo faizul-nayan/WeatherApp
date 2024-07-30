@@ -65,6 +65,7 @@ public class VerticalLayoutBuilder {
         layout.setWidth(width);
         layout.getStyle().set("background-color", backgroundColor);
         layout.getStyle().set("padding-top", paddingTop);
+        layout.getStyle().set("border-radius", "7px");
         layout.addClassNames(classNames.toArray(new String[0]));
         return layout;
     }

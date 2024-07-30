@@ -80,16 +80,19 @@ After deploying the application, you can access it in your web browser at `http:
 2. **Search for a City**:
    - Use the search bar to enter the name of a city.
      ![Login Page](screenshots/search.png)
-3. **View All Cities**:
+3. **Paging for search result**:
+    - Paging available with 10 items per page.
+      ![Login Page](screenshots/paging.png)
+4. **View All Cities**:
    - Show all cities across the world.
    - Select a city from the search results.
    - Data can be filtered based on location using the filter bar.
    - City can be marked as favourite.
 
-4. **Favourite List**:
+5. **Favourite List**:
    - Display the favourite list.
     ![Login Page](screenshots/favorite.png)
-5. **View Weather Information**:
+6. **View Weather Information**:
    - **Current Weather**: Displays the current weather conditions.
      ![Login Page](screenshots/current-forecast-1.png)
    - **Hourly Rain Information**: Shows rain information for the current day, updated hourly.
